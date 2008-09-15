@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<!--
+     Copyright 2008 Matthias Georgi. All rights reserved.
+
+     ``The contents of this file are subject to the Mozilla Public License
+     Version 1.1 (the "License"); you may not use this file except in
+     compliance with the License. You may obtain a copy of the License at
+     http://www.mozilla.org/MPL/
+
+     Software distributed under the License is distributed on an "AS IS"
+     basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+     License for the specific language governing rights and limitations
+     under the License.
+
+     The Original Code is xsd4mxml.
+
+     The Initial Developer of the Original Code is Ali Mansuroglu.
+     Portions created by the Initial Developer are Copyright (C) 2008
+     Ali Mansuroglu. All Rights Reserved.
+
+-->
+
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="onCreationComplete()">
+  <mx:XML id="components" source="mxml-manifest.xml" />
+  <mx:Script>
+    <![CDATA[
+	     import mx.controls.Alert;
+	     private function onCreationComplete() : void {
+	         result.text = Element.createSchema(components);	         
+	     }
+    ]]>
+  </mx:Script>
+  <mx:Panel percentWidth="100" percentHeight="100">
+    <mx:TextArea id="result" percentWidth="100" percentHeight="100" />
+  </mx:Panel>
+</mx:Application>

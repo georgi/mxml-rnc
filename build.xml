@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+
+<!--
+     Copyright 2008 Matthias Georgi. All rights reserved.
+
+     ``The contents of this file are subject to the Mozilla Public License
+     Version 1.1 (the "License"); you may not use this file except in
+     compliance with the License. You may obtain a copy of the License at
+     http://www.mozilla.org/MPL/
+
+     Software distributed under the License is distributed on an "AS IS"
+     basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+     License for the specific language governing rights and limitations
+     under the License.
+
+     The Original Code is xsd4mxml.
+
+     The Initial Developer of the Original Code is Ali Mansuroglu.
+     Portions created by the Initial Developer are Copyright (C) 2008
+     Ali Mansuroglu. All Rights Reserved.
+
+-->
+
+<project name="iska" default="compile" basedir=".">
+
+  <property file="build.properties" />
+
+  <target name="compile">
+    <echo message="compile" />
+    <exec executable="${FLEX_COMPILER}" failonerror="true">
+      <!-- include-libraries -->
+      <arg line="-output 'SchemaCreator.swf'" />
+      <arg line="-include-libraries ${FLEX_LIBS}/flex.swc" />
+      <arg line="-include-libraries ${FLEX_LIBS}/framework.swc" />
+      <arg line="-include-libraries ${FLEX_LIBS}/player/playerglobal.swc" />
+      <arg line="-include-libraries ${FLEX_LIBS}/rpc.swc" />
+      <!-- keep-as3-metadata -->
+      <arg line="-keep-as3-metadata Event" />
+      <arg line="-keep-as3-metadata Effect" />
+      <arg line="-keep-as3-metadata Style" />
+      <arg line="-use-network=false" />
+      <arg line="-- SchemaCreator.mxml" />
+    </exec>
+  </target>
+
+</project>
